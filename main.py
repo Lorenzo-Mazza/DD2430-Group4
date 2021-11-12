@@ -181,7 +181,7 @@ for index, row in df_room3.iterrows():
     if row['Time stamp'] in absent_on['Time stamp'].values:
         labels.append(1)
     elif row['Time stamp'] in df_room3_outliers['Time stamp'].values:
-        labels.append(2)
+        labels.append(1)
     else:
         labels.append(0)
 df_room3['Label']= labels
@@ -192,6 +192,4 @@ print("Random Forest: ")
 testClassifier(RandForestClassifier(), X_transformed, labels, split=0.7)
 print("SVM: ")
 testClassifier(SVMClassifier(), X_transformed, labels, split=0.7)
-print("Bayesian Classifier: ")
-testClassifier(BayesClassifier(), X_transformed, labels, split=0.7)
 #testClassifier(BoostClassifier(RandForestClassifier(), T=10), X_transformed, labels, split=0.7)
